@@ -31,7 +31,7 @@ class HttpRequest {
             ajax.open(method.toUpperCase(), url);
 
             ajax.onerror = event =>{
-                reject(e);
+                reject(event);
             };
     
             ajax.onload = event =>{
