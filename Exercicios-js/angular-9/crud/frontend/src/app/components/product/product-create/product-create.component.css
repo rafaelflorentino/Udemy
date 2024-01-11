@@ -1,0 +1,14 @@
+
+mat-card > .forCreatProdct{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+mat-card{
+    padding: 15px;
+}
+button{
+    max-width: 100px;
+    margin-right: 15px;
+    margin-top: 20px;
+}

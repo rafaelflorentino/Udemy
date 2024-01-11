@@ -1,0 +1,18 @@
+// Pipeline só com 1 estagio, tras o estado e todas as cidades desse estado que possua a cidade sorocaba
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba" } },
+])
+
+// Interpola estado e cidade, 
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba" } },
+    { $unwind: "$cidades"}, // unwind interpola os valores repete o estado para cada cidade
+]).pretty()
+
+// Filtra a cidade, traz o id da cidade Sorocaba
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba" } },
+    { $unwind: "$cidades"},
+    { $match: {"cidades.nome": "Sorocaba"} },
+    { $project: {_id: "$cidades._id"} },
+]).pretty()

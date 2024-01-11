@@ -1,0 +1,18 @@
+// Buscar estados
+db.estados.find().pretty()
+
+// Inserir empresa com id de São Paulo
+db.empresas.insert({
+    nome: "Bradesco",
+    estadoId: ObjectId("63f62a7d20186a14a2654deb")
+})
+
+// Inserir empresa  com id do de sorocaba
+db.empresas.insert({
+    nome: "Vale",
+    estadoId: ObjectId("63f62a7d20186a14a2654dea")
+})
+
+// Buscando empresas
+db.empresas.find().pretty()
+

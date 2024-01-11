@@ -1,0 +1,22 @@
+// Inserir estado com uma array de cidades
+db.estados.insert({
+    nome: "São Paulo",
+    sigla:"SP",
+    regiao: "Sudeste",
+    cidades: [{
+        _id: ObjectId(),
+        nome: "Campinas",
+        area: 795.7,
+        prefeito: "José Donizette",
+        populacao: 1081000
+    }, {
+        _id: ObjectId(),
+        nome: "Guarulhos",
+        populacao: 132500
+    }, {
+        _id: ObjectId(),
+        nome: "Sorocaba",
+        distanciaCapital: 87,
+        populacao: 644919
+    }]
+})

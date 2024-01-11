@@ -1,0 +1,43 @@
+// Traz a empresa Bradesco
+db.empresas.aggregate([
+    {$match: {nome: "Bradesco"}},
+]).pretty()
+
+// Traz a empresa Bradesco com os dados
+db.empresas.aggregate([
+    {$match: {nome: "Bradesco"}}, // Busca empresa bradesco entre as empresas
+    {$lookup:{
+        from: "estados", 
+        localField: "estadoId", // Campo pertence a empresas
+        foreignField: "_id", // Campo pertence a estados
+        as: "estado" // Nome do atributo que sera criado com a relaçao de empresa e estado
+    }},
+]).pretty()
+
+// Traz a empresa Bradesco com os dados
+db.empresas.aggregate([
+    {$match: {nome: "Bradesco"}}, 
+    {$lookup:{
+        from: "estados", 
+        localField: "estadoId", 
+        foreignField: "_id", 
+        as: "estado" 
+    }},
+    {$unwind: "$estado"}, // Estados vem fora de cidades
+]).pretty()
+
+// Traz a empresa Vale
+db.empresas.aggregate([
+    {$match: {nome: "Vale"}}, 
+    {$lookup: {
+        from: "estados",
+        localField: "cidadeId",
+        foreignField: "cidades._id",
+        as: "estado"
+    }},
+    {$unwind: "$estado"}, // Tira os estados de dentro da array
+    {$unwind: "$estado.cidades"}, // Separa cria varios documentos comtendo em cada documento: estado+empresa+cidade
+    {$addFields: { mesmaCidade: {$cmp: ["estados.cidades._id", "$cidadeId"]}}}, // Verifica se id estado e igual ao id da cidade, retorna o ou -1
+    {$match: { mesmaCidade: 0}},
+]).pretty()
+

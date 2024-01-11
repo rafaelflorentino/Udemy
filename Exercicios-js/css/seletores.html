@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+    /* #aninhado > div{ // div filha direta de aninhado
+        color: #ff0;
+        background-color: #f77;
+    }     */
+    /* #aninhado section{ //qualuer section dentro de aninhado
+        color: #ff0;
+        background-color: #f77;
+    }   */
+    /* p + ul{ // irmaos diretos, pego a primeira ula irma de p
+        color: #ff0;
+        background-color: #f77;
+    }     */
+    /* p ~ ol { // irmaos genericos, qualquer ol irmao de p
+        color: #ff0;
+        background-color: #f77;
+    }        */
+    /* [feira]{ // procurar seletor feira 
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* [feira=casa]{  //verifica se tem palavra casa
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* [feira~=escritorio]{  //verifica se tem escritorio em varias palavras
+        color: #ff0;
+        background-color: #f77;
+    }  */
+    /* [feira*=sa]{ //verifica se tem sa no nome 
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* span:nth-child(1){ // primeiro elemento filho que seja span
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* section > :nth-child(odd){ //filhos impares
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* section > :nth-child(even){ // filhos pares
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* section > :nth-child(even){ 
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* section > :nth-child(odd), ul{ // filhos impares de section e ul
+        color: #ff0;
+        background-color: #f77;
+    } */
+    /* section > span:nth-of-type(2){ //segundo elemeto span dentro de section
+        color: #ff0;
+        background-color: #f77;
+    } */
+    section > span:nth-of-type(2){ 
+        color: #ff0;
+        background-color: #f77;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag '>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

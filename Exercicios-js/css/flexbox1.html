@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #01</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        .big{
+            font-size: 1.5em;
+        }
+        .flex-container{
+            display: flex; /*linhas por padrão*/
+            flex-direction: column; /*muda para coluna*/
+            flex-direction: column-reverse;/*inverte a ordem das colunas*/
+            flex-direction: row-reverse; /*joga tudo para direita*/
+            flex-direction: row; /*joga tudo para esquerda*/
+            width: 50%;
+            flex-wrap: wrap;/*quebra a linha e alinha os boxs*/
+            flex-wrap: wrap-reverse; /*invrte a ordem ultimos vem no lugar dos primeiros*/
+            flex-flow: row wrap;
+            height: 200px;
+            flex-flow: column-reverse wrap; /*reverte a ordem das colunas 21 43 765 1098 */
+            flex-flow: row wrap;
+            justify-content: flex-start;/* joga tudo a esquerda*/
+            justify-content: flex-end; /* joga tudo a direita*/
+            justify-content: center; /*poe juntas no centro 2 box que sobraram*/
+            justify-content: space-around;/*espaco dos lados 2 box que sobraram*/
+            flex-direction: row-reverse;
+            justify-content: space-between;/*espaco entre 2 box que sobraram*/
+            
+            /*Cross Axis*/
+            height: 400px;
+            align-items: stretch;/*padrão*/
+            align-items: baseline;/*alinha o tamanho pela base da fonte*/
+            align-items: flex-start;/*alinha pelo inicio cima*/
+            align-items: flex-end;/*alinha pelo fim baixo*/
+            align-items: center;/*alinha pelo centro*/
+
+            /* masi de uma linha*/
+            align-content: flex-start;/*todas linhas vão para o start cima*/
+            align-content: flex-end;/*todas linhas vão para o end baixo*/
+            align-content: center;/*todas linhas vão para o centro meio*/
+            align-content: space-around;/*alinha poe espaço ao redor das linhas*/
+            align-content: space-between;/*alinha poe espaço entre as linhas*/
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel big">3</div>
+        <div class="tag nolabel">4</div>
+        <div class="tag nolabel">5</div>
+        <div class="tag nolabel">6</div>
+        <div class="tag nolabel">7</div>
+        <div class="tag nolabel">8</div>
+        <div class="tag nolabel">9</div>
+        <div class="tag nolabel">10</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Caneta BIC Preta",
+      "price": "5.89"
+    },
+    {
+      "id": 2,
+      "name": "Notebook Mac Pro",
+      "price": "12000.89"
+    },
+    {
+      "id": 4,
+      "name": "Geladeira",
+      "price": "1913.99"
+    },
+    {
+      "name": "veio do formulario",
+      "price": "9.99",
+      "id": 5
+    },
+    {
+      "name": "Geladeira",
+      "price": "1894.89",
+      "id": 6
+    },
+    {
+      "name": "Notebook",
+      "price": "3567.81",
+      "id": 7
+    },
+    {
+      "name": "lapis preto",
+      "price": "02.55",
+      "id": 8
+    },
+    {
+      "name": "boraacha branca",
+      "id": 9,
+      "price": "8.9"
+    },
+    {
+      "id": 10,
+      "name": "cadeira",
+      "price": "23"
+    },
+    {
+      "id": 11,
+      "name": "mesa",
+      "price": "256"
+    },
+    {
+      "id": 12,
+      "name": "teste",
+      "price": "9.98"
+    },
+    {
+      "id": 13,
+      "name": "teste2",
+      "price": "5.55"
+    },
+    {
+      "id": 14,
+      "name": "teste",
+      "price": "100"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #03</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button>Pesquisar</button>
+    </form>
+    <script>
+        console.log(document.forms)/*Acessar dados Formulario*/
+        console.log(document.forms[0])/*Acessar dados Formulario*/
+
+        console.log(document.getElementsByName('pesquisa'))/*Acessar pelo atributo name, nodeList*/
+        console.log(document.getElementsByTagName('form'))/*Acessar pelo atributo name, HTML colection*/
+        console.log(document.pesquisa) /*Acessar pelo nome do formulario*/
+        console.log(document.pesquisa.q) /*Acessar formulario, input name q*/
+        document.pesquisa.q.value = 'linux Brasil' /*inserir valor no input*/
+        document.pesquisa.hl.value = 'en-us' /*inserir valor no select*/
+        console.log(document.pesquisa.hl.selectedIndex)/*verificar qual indicce esta selecionado*/
+    </script>
+</body>
+
+</html>

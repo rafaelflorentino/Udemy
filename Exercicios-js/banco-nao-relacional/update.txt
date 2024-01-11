@@ -1,0 +1,25 @@
+// Altera ou inseri o valor de população
+db.estados.update({sigla: "SP"}, {$set: {populacao: 45340000}})
+
+// Consultar
+db.estados.find().pretty()
+
+// Inserir cidade sergipe em alagoas com update 
+db.estados.update({sigla: "AL"}, {$set: {cidades: [{nome: "Sergipe"}]}})
+
+// Consultar
+db.estados.find({sigla: "AL"}).pretty()
+
+// Adicionar cidades com push
+db.estados.update(
+    {sigla: "SP"},
+    {$push: {cidades: {nome: "Santos", populacao: 433966}}}
+)
+// Alterar todos os registros
+db.estados.update({},)
+
+// Consultar
+db.estados.find({sigla: "SP"}).pretty()
+
+// Consultar o nome dos estados que tem população. exists:true
+db.estados.find({populacao: {$exists: true}}, {_id:0, nome: 1})

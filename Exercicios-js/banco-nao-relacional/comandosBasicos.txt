@@ -1,0 +1,86 @@
+// Iniciar
+mongod
+mongosh
+
+// Limpar
+cls
+
+// Ajuda
+db.help
+
+// Verificar versão
+mongo --version
+
+// Mostrar todos os bancos
+show dbs
+
+// Mostrar todas as coleções
+show collections
+
+// Usar banco ou criar caso não exista
+use wm
+
+// Criar coleção
+db.createCollection('estados')
+db.createCollection('Estados') // Banco e case sensitive
+
+// Excluir coleção
+db.Estados.drop()
+
+// Inserir dados na coleção
+db.estados.insert({nome: "Acre", sigla: "AC", regiao: "Norte"})
+db.estados.insert({nome: "Alagoas", sigla: "AL", regiao: "Nordeste", populacao: 3334400})
+
+// Inserir estado com Insert
+db.estados.insert({
+    nome: "Rio de Janeiro",
+    sigla: "RJ",
+    regiao: "Sudeste",
+    cidades: [{
+    nome: "Niterói",
+    area: 133.9,
+    populacao: 487562
+    }]
+})
+
+// Inserir estado com Salvar
+db.estados.save({nome: "Alagoas", sigla: "AL", regiao: "Nordeste", populacao: 3334400})
+
+// Consultar
+db.estados.find()
+db.estados.find().pretty()
+
+// Busca um elemento
+db.estados.findOne()
+
+// Busca elemento com a sigla RJ
+db.estados.findOne({sigla: "RJ"})
+
+db.estados.find({sigla: "RJ"}).pretty()
+
+// Usando operador or 
+db.estados.find({$or: [{sigla: "RJ"}, {sigla:"AC"}]}).pretty()
+
+// Usando operador and 
+db.estados.find({$and: [{sigla: "RJ"}, {regiao:"Suddeste"}]}).pretty()
+
+// Verificar se contem atributo
+db.estados.find({populacao: {$exists: true}})
+
+db.estados.find({populacao: {$exists: true}}).pretty()
+
+// Trazer valores e pular alguns com skip
+db.estados.find().skip(1) // Pula o 1 registro
+
+// Trazer valores e pular 1 vlor e limitar a 2 resustados
+db.estados.find().skip(1).limit(2) // limmita pra 2 registros
+
+// Contar quantos elementos tem
+db.estados.count()
+
+// Trazer nome e sigla
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1}) // O id também vem por padrão
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1 ,_id: 0}) // O id não vem
+
+// Trazer so o nome das cidades, de quem tem a sigla SP
+db.estados.find({sigla:"SP"}, {"cidades.nome": 1, _id: 0})

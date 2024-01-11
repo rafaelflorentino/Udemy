@@ -1,0 +1,33 @@
+// Busca elemento com a sigla RJ
+db.estados.findOne({sigla: "RJ"})
+
+db.estados.find({sigla: "RJ"}).pretty()
+
+// Usando operador or 
+db.estados.find({$or: [{sigla: "RJ"}, {sigla:"AC"}]}).pretty()
+
+// Usando operador and 
+db.estados.find({$and: [{sigla: "RJ"}, {regiao:"Suddeste"}]}).pretty()
+
+// Verificar se contem atributo
+db.estados.find({populacao: {$exists: true}})
+
+db.estados.find({populacao: {$exists: true}}).pretty()
+
+// Trazer valores e pular alguns com skip
+db.estados.find().skip(1) // Pula o 1 registro
+
+// Trazer valores e pular 1 vlor e limitar a 2 resustados
+db.estados.find().skip(1).limit(2) // limmita pra 2 registros
+
+// Contar quantos elementos tem
+db.estados.count()
+
+// Trazer nome e sigla
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1}) // O id também vem por padrão
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1 ,_id: 0}) // O id não vem
+
+// Trazer so o nome das cidades, de quem tem a sigla SP
+db.estados.find({sigla:"SP"}, {"cidades.nome": 1, _id: 0})
+
+

@@ -1,0 +1,30 @@
+// Inserir dados na coleção com insert
+db.estados.insert({nome: "Acre", sigla: "AC", regiao: "Norte"})
+
+// Inserir dados na coleção com insert
+db.estados.insert({
+    nome: "Rio de Janeiro",
+    sigla: "RJ",
+    regiao: "Sudeste",
+    cidades: [{
+    nome: "Niterói",
+    area: 133.9,
+    populacao: 487562
+    }]
+})
+
+// Inserir dados na coleção com insert
+db.estados.insert({
+    nome: "Rio de Janeiro",
+    sigla: "RJ",
+    regiao: "Sudeste",
+    cidades: [{
+        _id: ObjectId(),
+        nome: "Niterói",
+        area: 133.9,
+        populacao: 487562
+    }]
+})
+
+// Inserir dados na coleção com Save
+db.estados.save({nome: "Alagoas", sigla: "AL", regiao: "Nordeste", populacao: 3334400})

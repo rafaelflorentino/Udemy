@@ -1,0 +1,23 @@
+// Trazer estados mostrando nomes das cidades (com PipeLine de agregação)
+db.estados.aggregate([
+    { $project: {nome: 1, "cidades.nome": 1, _id: 0}} // com . precisa de aspas "" = "cidades.nome"
+])
+
+// Agrupar por estado e somar os valores da população de cada estado, consulta s com 1 passo
+db.estados.aggregate([
+    { $project : {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} }  // sum vai somar os valores da populacao
+])´
+
+// Consulta Agregação com 2 passos
+db.estados.aggregate([
+    { $project : {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} },
+    { $group: {_id: null, populacaoTotal: { $sum: "$populacao" }} },
+])    
+
+// Consulta Agregação com 3 passos
+db.estados.aggregate([
+    { $project : {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} },
+    { $group: {_id: null, populacaoTotal: { $sum: "$populacao" }} },
+    { $project : { _id: 0, populacaoTotal: 1} },
+])    
+

@@ -1,0 +1,20 @@
+// Remove estado com a sigla AC
+db.estados.remove({sigla: "AC"})
+
+// Conta quantidade ed estados
+db.estados.count()
+
+// Traz todos estados
+db.estados.find().pretty()
+
+// Remove só 1 estado que tem população
+db.estados.remove({populacao: {$exists: true}}, 1)
+
+//  Inserindo ou Muda a população do rio para 16720000
+db.estados.update(
+    {sigla: "RJ"},
+    {$set: {populacao: 16720000}}
+)
+
+// Remover as cidades com a população menor que 20.000.000 milhões de habitantes
+db.estados.remove({populacao: {$lt: 20000000}})

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img = document.querySelector('img')
+        console.log('getAttribute', img.getAttribute('src'))
+        console.log('src', img.src)
+        console.log('["src"]', img['src'])
+        console.log('alt', img.alt)
+
+        console.log('Elemento "img"............')
+        console.log('NodeType', img.nodeType) /*NodeType 1 = element*/
+
+        const src = img.getAttributeNode('src')/*NodeType 2 = attr*/
+        console.log('NodeType', src.nodeType)/*Tipo do atributo*/
+        console.log('NodeType', src.nodeName)/*Nome do atributo*/
+        console.log('NodeType', src.nodeValue)/*Valor do atributo*/
+
+        const link = document.querySelector('a')
+        console.log('Elemento "a" ................')
+        console.log('href', link.href)
+        console.log('firstChild.nodeType', link.firstChild.nodeType)/*NodeType 3 = text*/
+        link.firstChild.nodeValue = 'Novo Texto'
+    </script>
+</body>
+
+</html>
