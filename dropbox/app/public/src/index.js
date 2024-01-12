@@ -1,0 +1,1 @@
+window.app = new DropBoxController(); /* Váriavel app agora vai chamar dropboxcontroller() */
